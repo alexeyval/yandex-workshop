@@ -47,5 +47,6 @@ func readFileContents(fileName string) string {
 }
 
 func Path(fileName string) string {
+	fmt.Println(os.Args)
 	return path.Join("sprint_01", "files", "task_10", fileName)
 }
