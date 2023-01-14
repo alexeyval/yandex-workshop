@@ -6,6 +6,7 @@ import (
 	"log"
 	"os"
 	"path"
+	"path/filepath"
 	"strings"
 	"time"
 )
@@ -27,14 +28,22 @@ func GetReader(fileName string) (reader *bufio.Reader, file *os.File) {
 
 // Duration - выводит информацию о запуске функции
 func Duration(fileName string, f func(string)) {
-	start := time.Now()
-	fmt.Printf("------------- %v -------------"+
-		"\nВвод:\n%v\n\nВывод:\n", fileName, strings.TrimSpace(readFileContents(fileName)))
-	f(fileName)
-	d := time.Since(start)
-	fmt.Printf("\nВремя выполнения = %v\n\n", d)
+	switch fileName {
+	case "":
+		fmt.Println("---------------------------------------")
+		f(fileName)
+		fmt.Println()
+	default:
+		start := time.Now()
+		fmt.Printf("------------- %v -------------\nВвод:\n%v\n\nВывод:\n",
+			path.Base(filepath.ToSlash(fileName)), strings.TrimSpace(readFileContents(fileName)))
+		f(fileName)
+		d := time.Since(start)
+		fmt.Printf("\nВремя выполнения = %v\n\n", d)
+	}
 }
 
+// readFileContents - считывает всё содержимое файла
 func readFileContents(fileName string) string {
 	if fileName != "" {
 		bytes, err := os.ReadFile(fileName)
@@ -46,7 +55,24 @@ func readFileContents(fileName string) string {
 	return ""
 }
 
+// Path - находит полный путь файла
 func Path(fileName string) string {
-	fmt.Println(os.Args)
-	return path.Join("sprint_01", "files", "task_10", fileName)
+	if fileName == "" {
+		return ""
+	}
+	pathProject, err := os.Getwd()
+	if err != nil {
+		log.Println(err)
+	}
+
+	matches := path.Join(pathProject, "*", "*", "*", "*.txt")
+	files, _ := filepath.Glob(matches)
+	for _, file := range files {
+		if strings.HasSuffix(file, fileName) {
+			return file
+		}
+	}
+
+	log.Fatal(fmt.Errorf("не нашёл файл %v", fileName))
+	return ""
 }
