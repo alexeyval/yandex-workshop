@@ -9,7 +9,6 @@ import (
 )
 
 func main() {
-	Duration(Path("1.txt"), binarySystem)
 	Duration(Path("2.txt"), binarySystem)
 }
 
@@ -24,9 +23,9 @@ func binarySystem(fileName string) {
 	add0 := int(math.Abs(float64(len(a) - len(b))))
 	switch {
 	case len(a) > len(b):
-		b = strings.Repeat("0", add0)
+		b = strings.Repeat("0", add0) + b
 	case len(a) < len(b):
-		a = strings.Repeat("0", add0)
+		a = strings.Repeat("0", add0) + a
 	}
 
 	system := 2 // система счисления
