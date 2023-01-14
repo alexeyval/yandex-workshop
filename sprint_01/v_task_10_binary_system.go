@@ -9,8 +9,9 @@ import (
 )
 
 func main() {
-	Duration(Path("1.txt"), binarySystem)
-	Duration(Path("2.txt"), binarySystem)
+	Duration(Path(""), binarySystem)
+	//Duration(Path("1.txt"), binarySystem)
+	//Duration(Path("2.txt"), binarySystem)
 }
 
 func binarySystem(fileName string) {
@@ -29,7 +30,7 @@ func binarySystem(fileName string) {
 		a = strings.Repeat("0", add0) + a
 	}
 
-	system := 2 // система счисления
+	system := 10 // система счисления
 	var sum []string
 	overflow := 0
 	for i := len(a) - 1; i >= 0; i-- {
@@ -37,13 +38,8 @@ func binarySystem(fileName string) {
 		rb, _ := strconv.Atoi(string(b[i]))
 
 		sumR := ra + rb + overflow
-		if sumR >= system {
-			sum = append(sum, strconv.Itoa(sumR%system))
-			overflow = 1
-		} else {
-			sum = append(sum, strconv.Itoa(sumR))
-			overflow = 0
-		}
+		sum = append(sum, strconv.Itoa(sumR%system))
+		overflow = sumR / system
 	}
 	if overflow != 0 {
 		sum = append(sum, strconv.Itoa(overflow))
