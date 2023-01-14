@@ -36,11 +36,12 @@ func binarySystem(fileName string) {
 		ra, _ := strconv.Atoi(string(a[i]))
 		rb, _ := strconv.Atoi(string(b[i]))
 
-		if ra+rb+overflow >= system {
-			sum = append(sum, "0")
+		sumR := ra + rb + overflow
+		if sumR >= system {
+			sum = append(sum, strconv.Itoa(sumR%system))
 			overflow = 1
 		} else {
-			sum = append(sum, strconv.Itoa(ra+rb+overflow))
+			sum = append(sum, strconv.Itoa(sumR))
 			overflow = 0
 		}
 	}
