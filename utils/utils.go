@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"path"
 	"strings"
 	"time"
 )
@@ -43,4 +44,8 @@ func readFileContents(fileName string) string {
 		return string(bytes)
 	}
 	return ""
+}
+
+func Path(fileName string) string {
+	return path.Join("sprint_01", "files", "task_10", fileName)
 }

@@ -3,15 +3,14 @@ package main
 import (
 	"fmt"
 	"math"
-	"path"
 	"strconv"
 	"strings"
 	. "yandexWorkshop/utils"
 )
 
 func main() {
-	Duration(path.Join("sprint_01", "files", "task_10", "1.txt"), binarySystem)
-	Duration(path.Join("sprint_01", "files", "task_10", "2.txt"), binarySystem)
+	Duration(Path("1.txt"), binarySystem)
+	Duration(Path("2.txt"), binarySystem)
 }
 
 func binarySystem(fileName string) {
