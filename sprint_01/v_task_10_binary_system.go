@@ -29,7 +29,7 @@ func binarySystem(fileName string) {
 		a = strings.Repeat("0", add0) + a
 	}
 
-	system := 10 // система счисления
+	system := 2 // система счисления
 	var sum []string
 	overflow := 0
 	for i := len(a) - 1; i >= 0; i-- {
