@@ -9,9 +9,8 @@ import (
 )
 
 func main() {
-	Duration(Path(""), binarySystem)
-	//Duration(Path("1.txt"), binarySystem)
-	//Duration(Path("2.txt"), binarySystem)
+	Duration(Path("1.txt"), binarySystem)
+	Duration(Path("2.txt"), binarySystem)
 }
 
 func binarySystem(fileName string) {
