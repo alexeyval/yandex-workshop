@@ -93,7 +93,11 @@ func TaskParse(fileName string) string {
 	first := dataRegexp.FindString(fileName)
 	if first == "" {
 		fmt.Println(fmt.Errorf(`в названии запускаемого файла ` +
-			`должно присутвовать task с номером, например task-10, или task10, или task_10, task.10`))
+			`должно присутвовать task с номером, примеры:
+task-10
+task10
+task_10
+task.10`))
 		os.Exit(1)
 		return ""
 	}
