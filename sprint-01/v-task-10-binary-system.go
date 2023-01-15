@@ -5,7 +5,7 @@ import (
 	"math"
 	"strconv"
 	"strings"
-	. "yandexWorkshop/utils"
+	. "yandex-workshop/utils"
 )
 
 func main() {
