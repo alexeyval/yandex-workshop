@@ -73,6 +73,7 @@ func Path(fileName string) string {
 		}
 	}
 
-	log.Fatal(fmt.Errorf("не нашёл файл %v", fileName))
+	fmt.Println(fmt.Errorf("не нашёл файл %v", fileName))
+	os.Exit(1)
 	return ""
 }
