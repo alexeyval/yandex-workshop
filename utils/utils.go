@@ -7,6 +7,7 @@ import (
 	"os"
 	"path"
 	"path/filepath"
+	"regexp"
 	"strings"
 	"time"
 )
@@ -48,14 +49,15 @@ func readFileContents(fileName string) string {
 	if fileName != "" {
 		bytes, err := os.ReadFile(fileName)
 		if err != nil {
-			log.Fatal(err)
+			fmt.Println(err)
+			os.Exit(3)
 		}
 		return string(bytes)
 	}
 	return ""
 }
 
-// Path - находит полный путь файла
+// Path - находит полный путь к файлу
 func Path(fileName string) string {
 	if fileName == "" {
 		return ""
@@ -64,16 +66,37 @@ func Path(fileName string) string {
 	if err != nil {
 		log.Println(err)
 	}
+	pathProject = filepath.ToSlash(pathProject)
+	filePathRun, err := os.Executable()
+	fileRun := path.Base(filepath.ToSlash(filePathRun))
+	findTask := TaskParse(fileRun)
 
-	matches := path.Join(pathProject, "*", "*", "*", "*.txt")
+	mask := "*" + findTask + "*"
+	pathFind := path.Join(pathProject, "*", "*", mask, "*")
+	matches := pathFind
 	files, _ := filepath.Glob(matches)
 	for _, file := range files {
-		if strings.HasSuffix(file, fileName) {
+		if strings.Contains(file, fileName) {
 			return file
 		}
 	}
 
-	fmt.Println(fmt.Errorf("не нашёл файл %v", fileName))
+	fmt.Println(fmt.Errorf(`Не нашёл файл включащий "%v", он должен находиться в папке c названием `+
+		"по маске %v.\nПуть для поиска такой:\n%v", fileName, mask, path.Join(pathProject, "*", "*", mask, "*")))
 	os.Exit(1)
 	return ""
+}
+
+// TaskParse по маске ищет task и номер задачи
+func TaskParse(fileName string) string {
+	dataRegexp := regexp.MustCompile(`task([\-\.\_])?(\d)*`)
+	first := dataRegexp.FindString(fileName)
+	if first == "" {
+		fmt.Println(fmt.Errorf(`в названии запускаемого файла ` +
+			`должно присутвовать task с номером, например task-10, или task10, или task_10, task.10`))
+		os.Exit(1)
+		return ""
+	}
+
+	return first
 }
