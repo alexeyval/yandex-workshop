@@ -76,7 +76,8 @@ func Path(fileName string) string {
 	matches := pathFind
 	files, _ := filepath.Glob(matches)
 	for _, file := range files {
-		if strings.Contains(file, fileName) {
+		findFileName := path.Base(filepath.ToSlash(file))
+		if strings.Contains(findFileName, fileName) {
 			return file
 		}
 	}
@@ -89,15 +90,29 @@ func Path(fileName string) string {
 
 // TaskParse по маске ищет task и номер задачи
 func TaskParse(fileName string) string {
-	dataRegexp := regexp.MustCompile(`task([\-\.\_])?(\d)*`)
+	wordName := ""
+	switch {
+	case strings.Contains(fileName, "task"):
+		wordName = "task"
+	case strings.Contains(fileName, "final"):
+		wordName = "final"
+	}
+	if wordName == "" {
+		fmt.Println(fmt.Errorf(`в названии запускаемого файла ` +
+			`должно присутвовать task или final`))
+		os.Exit(1)
+		return ""
+	}
+	dataRegexp := regexp.MustCompile(wordName + `([\-\.\_])?(\d)*`)
+
 	first := dataRegexp.FindString(fileName)
 	if first == "" {
-		fmt.Println(fmt.Errorf(`в названии запускаемого файла ` +
-			`должно присутвовать task с номером, примеры:
-task-10
+		fmt.Println(fmt.Errorf(`в названии запускаемого файла `+
+			`должно присутвовать %v с номером, примеры:
+task-08
 task10
 task_10
-task.10`))
+task.10`, wordName))
 		os.Exit(1)
 		return ""
 	}
