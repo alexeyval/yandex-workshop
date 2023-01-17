@@ -3,8 +3,6 @@ package main
 import "fmt"
 
 func main() {
-	Solution(nil)
-
 	nodes := []ListNode{
 		{
 			data: "1",
