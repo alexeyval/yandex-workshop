@@ -1,22 +1,26 @@
 package main
 
+import (
+	. "yandex-workshop/sprint-02/list-node"
+)
+
 func main() {
 	nodes := []ListNode{
 		{
-			data: "1",
+			Data: "1",
 		},
 		{
-			data: "2",
+			Data: "2",
 		},
 		{
-			data: "3",
+			Data: "3",
 		},
 		{
-			data: "4",
+			Data: "4",
 		},
 	}
 	for i := 0; i < len(nodes)-1; i++ {
-		nodes[i].next = &nodes[i+1]
+		nodes[i].Next = &nodes[i+1]
 	}
 
 	Solution(nil)
