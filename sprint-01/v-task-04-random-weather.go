@@ -6,8 +6,8 @@ import (
 )
 
 func main() {
-	Duration(Path("1"), randomWeather)
-	Duration(Path("2"), randomWeather)
+	Duration(Path("01", "1"), randomWeather)
+	Duration(Path("01", "2"), randomWeather)
 }
 
 func randomWeather(fileName string) {

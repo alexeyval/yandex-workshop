@@ -58,7 +58,7 @@ func readFileContents(fileName string) string {
 }
 
 // Path - находит полный путь к файлу
-func Path(fileName string) string {
+func Path(sprint, fileName string) string {
 	if fileName == "" {
 		return ""
 	}
@@ -72,7 +72,7 @@ func Path(fileName string) string {
 	findTask := TaskParse(fileRun)
 
 	mask := "*" + findTask + "*"
-	pathFind := path.Join(pathProject, "*", "*", mask, "*")
+	pathFind := path.Join(pathProject, "*"+sprint+"*", "*", mask, "*")
 	matches := pathFind
 	files, _ := filepath.Glob(matches)
 	for _, file := range files {
@@ -106,6 +106,7 @@ func TaskParse(fileName string) string {
 	dataRegexp := regexp.MustCompile(wordName + `([\-\.\_])?(\d)*`)
 
 	first := dataRegexp.FindString(fileName)
+	first = strings.ReplaceAll(first, "_", "-")
 	if first == "" {
 		fmt.Println(fmt.Errorf(`в названии запускаемого файла `+
 			`должно присутвовать %v с номером, примеры:

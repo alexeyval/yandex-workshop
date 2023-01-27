@@ -9,9 +9,9 @@ import (
 )
 
 func main() {
-	Duration(Path("1"), factorization)
-	Duration(Path("2"), factorization)
-	Duration(Path("3"), factorization)
+	Duration(Path("01", "1"), factorization)
+	Duration(Path("01", "2"), factorization)
+	Duration(Path("01", "3"), factorization)
 }
 
 func factorization(fileName string) {

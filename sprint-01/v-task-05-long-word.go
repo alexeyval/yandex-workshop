@@ -8,8 +8,8 @@ import (
 )
 
 func main() {
-	Duration(Path("1"), longWord)
-	Duration(Path("2"), longWord)
+	Duration(Path("01", "1"), longWord)
+	Duration(Path("01", "2"), longWord)
 }
 
 func longWord(fileName string) {

@@ -7,9 +7,9 @@ import (
 )
 
 func main() {
-	Duration(Path("1"), sleightHand)
-	Duration(Path("2"), sleightHand)
-	Duration(Path("3"), sleightHand)
+	Duration(Path("01", "1"), sleightHand)
+	Duration(Path("01", "2"), sleightHand)
+	Duration(Path("01", "3"), sleightHand)
 }
 
 func sleightHand(fileName string) {

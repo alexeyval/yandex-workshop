@@ -10,8 +10,8 @@ import (
 )
 
 func main() {
-	Duration(Path("1"), nearestZero)
-	Duration(Path("2"), nearestZero)
+	Duration(Path("01", "1"), nearestZero)
+	Duration(Path("01", "2"), nearestZero)
 }
 
 func nearestZero(fileName string) {
