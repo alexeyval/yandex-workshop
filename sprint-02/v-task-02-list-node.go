@@ -1,28 +1,14 @@
 package main
 
 import (
-	. "yandex-workshop/sprint-02/list-node"
+	. "yandex-workshop/sprint-02/list"
 )
 
 func main() {
-	nodes := []ListNode{
-		{
-			Data: "1",
-		},
-		{
-			Data: "2",
-		},
-		{
-			Data: "3",
-		},
-		{
-			Data: "4",
-		},
-	}
-	for i := 0; i < len(nodes)-1; i++ {
-		nodes[i].Next = &nodes[i+1]
-	}
+	n4 := &List{Data: "4"}
+	n3 := &List{Data: "3", Next: n4}
+	n2 := &List{Data: "2", Next: n3}
+	n1 := &List{Data: "1", Next: n2}
 
-	Solution(nil)
-	Solution(&nodes[0])
+	n1.Print()
 }

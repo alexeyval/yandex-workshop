@@ -1,14 +1,14 @@
-package list_node
+package list
 
 import "fmt"
 
-type ListNode struct {
+type List struct {
 	Data string
-	Next *ListNode
+	Next *List
 }
 
-func Solution(head *ListNode) {
-	node := head
+func (list *List) Print() {
+	node := list
 	for node != nil {
 		fmt.Print(node.Data + " -> ")
 		node = node.Next
@@ -17,7 +17,7 @@ func Solution(head *ListNode) {
 	fmt.Println()
 }
 
-func getNodeByIndex(node *ListNode, index int) *ListNode {
+func getNodeByIndex(node *List, index int) *List {
 	for index > 0 {
 		node = node.Next
 		index--
@@ -26,8 +26,8 @@ func getNodeByIndex(node *ListNode, index int) *ListNode {
 	return node
 }
 
-func InsertNode(head *ListNode, index int, value string) *ListNode {
-	newNode := &ListNode{Data: value}
+func InsertNode(head *List, index int, value string) *List {
+	newNode := &List{Data: value}
 	if index == 0 {
 		newNode.Next = head
 		return newNode
