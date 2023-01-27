@@ -3,14 +3,14 @@ package list
 import "fmt"
 
 type List struct {
-	Data string
+	Data interface{}
 	Next *List
 }
 
 func (l *List) Print() {
 	node := l
 	for node != nil {
-		fmt.Print(node.Data + " -> ")
+		fmt.Printf("%v -> ", node.Data)
 		node = node.Next
 	}
 	fmt.Print("None")
@@ -36,6 +36,17 @@ func (l *List) Delete(index int) *List {
 	return l
 }
 
+func (l *List) Find(value interface{}) int {
+	i, node := 0, l
+	for node != nil {
+		if node.Data == value {
+			return i
+		}
+		i, node = i+1, node.Next
+	}
+	return -1
+}
+
 func getNodeByIndex(node *List, index int) *List {
 	for index > 0 {
 		node = node.Next
@@ -45,7 +56,7 @@ func getNodeByIndex(node *List, index int) *List {
 	return node
 }
 
-func InsertNode(head *List, index int, value string) *List {
+func InsertNode(head *List, index int, value interface{}) *List {
 	newNode := &List{Data: value}
 	if index == 0 {
 		newNode.Next = head
