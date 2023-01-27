@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	. "yandex-workshop/sprint-02/stackMax"
+	. "yandex-workshop/sprint-02/stacks"
 )
 
 func main() {

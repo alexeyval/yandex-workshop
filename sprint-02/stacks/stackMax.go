@@ -1,4 +1,4 @@
-package stackMax
+package stacks
 
 import "fmt"
 
