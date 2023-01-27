@@ -2,19 +2,19 @@ package stacks
 
 import "fmt"
 
-type list struct {
+type listMax struct {
 	n    int
 	max  int
-	prev *list
+	prev *listMax
 }
 
 type StackMax struct {
-	top *list
+	top *listMax
 	len int
 }
 
 func (s *StackMax) Push(n int) {
-	elem := list{n: n, max: n, prev: s.top}
+	elem := listMax{n: n, max: n, prev: s.top}
 	if s.len != 0 && elem.max < s.top.max {
 		elem.max = s.top.max
 	}
