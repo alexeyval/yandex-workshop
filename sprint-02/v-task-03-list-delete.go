@@ -1,7 +1,7 @@
 package main
 
 import (
-	. "yandex-workshop/sprint-02/list"
+	. "yandex-workshop/sprint-02/lists"
 )
 
 func main() {

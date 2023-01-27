@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	. "yandex-workshop/sprint-02/list"
+	. "yandex-workshop/sprint-02/lists"
 )
 
 func main() {
