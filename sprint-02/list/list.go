@@ -7,14 +7,33 @@ type List struct {
 	Next *List
 }
 
-func (list *List) Print() {
-	node := list
+func (l *List) Print() {
+	node := l
 	for node != nil {
 		fmt.Print(node.Data + " -> ")
 		node = node.Next
 	}
 	fmt.Print("None")
 	fmt.Println()
+}
+
+func (l *List) Delete(index int) *List {
+	i, node := 0, l
+	for node != nil {
+		if index == 0 {
+			return node.Next
+		}
+		if node.Next == nil {
+			return l
+		}
+		if index == i+1 {
+			node.Next = node.Next.Next
+
+			return l
+		}
+		i, node = i+1, node.Next
+	}
+	return l
 }
 
 func getNodeByIndex(node *List, index int) *List {
