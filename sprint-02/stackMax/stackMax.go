@@ -1,4 +1,4 @@
-package stack
+package stackMax
 
 import "fmt"
 
@@ -23,12 +23,13 @@ func (s *StackMax) Push(n int) {
 }
 
 func (s *StackMax) Pop() {
-	if s.len == 0 {
+	switch s.len {
+	case 0:
 		fmt.Println("Error")
-		return
+	default:
+		s.top = s.top.prev
+		s.len--
 	}
-	s.top = s.top.prev
-	s.len--
 }
 
 func (s *StackMax) GetMax() {
