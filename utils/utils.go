@@ -35,9 +35,9 @@ func Duration(fileName string, f func(string)) {
 		f(fileName)
 		fmt.Println()
 	default:
-		start := time.Now()
 		fmt.Printf("------------- %v -------------\nВвод:\n%v\n\nВывод:\n",
 			path.Base(filepath.ToSlash(fileName)), strings.TrimSpace(readFileContents(fileName)))
+		start := time.Now()
 		f(fileName)
 		d := time.Since(start)
 		fmt.Printf("\nВремя выполнения = %v\n\n", d)
