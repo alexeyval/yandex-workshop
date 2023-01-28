@@ -1,7 +1,5 @@
 package stacks
 
-import "fmt"
-
 type list struct {
 	value interface{}
 	prev  *list
@@ -21,7 +19,7 @@ func (s *Stack) Push(value interface{}) {
 func (s *Stack) Pop() {
 	switch s.Len {
 	case 0:
-		fmt.Println("Error")
+	//	fmt.Println("Error")
 	default:
 		s.top = s.top.prev
 		s.Len--
@@ -31,7 +29,7 @@ func (s *Stack) Pop() {
 func (s *Stack) Top() (i interface{}) {
 	switch s.Len {
 	case 0:
-		fmt.Println("Error")
+	//	fmt.Println("Error")
 	default:
 		return s.top.value
 	}
