@@ -14,14 +14,14 @@ func main() {
 
 func isCorrectBracketSeq(bracketSeq string) bool {
 	s := Stack{}
-	m := map[int32]int32{'[': ']', '(': ')', '{': '}'}
+	parentheses := map[int32]int32{']': '[', ')': '(', '}': '{'}
 
 	for _, b := range bracketSeq {
-		if _, ok := m[b]; ok {
-			s.Push(m[b])
+		if _, ok := parentheses[b]; !ok {
+			s.Push(b)
 			continue
 		}
-		if s.Top() != b {
+		if s.Top() != parentheses[b] {
 			return false
 		}
 		s.Pop()
