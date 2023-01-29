@@ -2,11 +2,11 @@ package main
 
 import (
 	"fmt"
-	"yandex-workshop/sprint-02/queue"
+	"yandex-workshop/sprint-02/queueArray"
 )
 
 func main() {
-	q1 := queue.New(2)
+	q1 := queueArray.New(2)
 	fmt.Println("--- q1 ---")
 	q1.Peek()
 	q1.Push(5)
@@ -17,7 +17,7 @@ func main() {
 	q1.Push(1)
 	q1.Size()
 
-	q2 := queue.New(1)
+	q2 := queueArray.New(1)
 	fmt.Println("\n--- q2 ---")
 	q2.Push(1)
 	q2.Size()
