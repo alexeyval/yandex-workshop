@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"time"
 	decArray "yandex-workshop/sprint-02/dec-array"
 )
 
@@ -31,4 +32,28 @@ func main() {
 	d3.PushFront(20)
 	d3.PopFront()
 	d3.PopBack()
+
+	fmt.Println("\n\n----- тест производительности -----")
+	start := time.Now()
+
+	dTestPerformance := decArray.New(50000)
+
+	for i := 0; i < 50000; i++ {
+		if i%2 == 0 {
+			dTestPerformance.PushFront(i)
+		} else {
+			dTestPerformance.PushBack(i)
+		}
+	}
+	//вывод элементов в терминал занимает длительное время, чтобы замерить скорость работы нужно отключить println
+	//for i := 0; i < 50000; i++ {
+	//	if i%2 == 0 {
+	//		dTestPerfomance.PopFront()
+	//	} else {
+	//		dTestPerfomance.PopBack()
+	//	}
+	//}
+
+	d := time.Since(start)
+	fmt.Printf("\nВремя выполнения = %v\n\n", d)
 }
