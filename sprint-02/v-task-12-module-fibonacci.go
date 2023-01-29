@@ -10,12 +10,14 @@ func main() {
 	fmt.Println(moduleFibonacci(4, 1))
 	fmt.Println(moduleFibonacci(11, 1))
 
+	fmt.Println("тест производительности")
 	start := time.Now()
 	fmt.Println(moduleFibonacci(int(math.Pow(10, 6)), 8))
 	d := time.Since(start)
 	fmt.Printf("\nВремя выполнения = %v\n\n", d)
 }
 
+// https://tproger.ru/problems/finding-fibonacci/
 func moduleFibonacci(n int, k float64) int {
 	cache := [2]int{0, 1}
 
