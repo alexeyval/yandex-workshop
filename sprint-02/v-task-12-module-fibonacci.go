@@ -3,11 +3,17 @@ package main
 import (
 	"fmt"
 	"math"
+	"time"
 )
 
 func main() {
 	fmt.Println(moduleFibonacci(4, 1))
 	fmt.Println(moduleFibonacci(11, 1))
+
+	start := time.Now()
+	fmt.Println(moduleFibonacci(int(math.Pow(10, 6)), 8))
+	d := time.Since(start)
+	fmt.Printf("\nВремя выполнения = %v\n\n", d)
 }
 
 func moduleFibonacci(n int, k float64) int {
