@@ -8,8 +8,8 @@ import (
 )
 
 func main() {
-	Duration(Path("01", "1"), neighbors)
-	Duration(Path("01", "2"), neighbors)
+	Run(Path("01", "1"), neighbors)
+	Run(Path("01", "2"), neighbors)
 }
 
 func neighbors(fileName string) {

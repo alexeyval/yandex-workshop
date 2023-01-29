@@ -9,9 +9,9 @@ import (
 )
 
 func main() {
-	Duration(Path("01", "1"), evenAndOddNums)
-	Duration(Path("01", "2"), evenAndOddNums)
-	Duration(Path("01", "3"), evenAndOddNums)
+	Run(Path("01", "1"), evenAndOddNums)
+	Run(Path("01", "2"), evenAndOddNums)
+	Run(Path("01", "3"), evenAndOddNums)
 }
 
 func evenAndOddNums(fileName string) {

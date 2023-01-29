@@ -7,8 +7,8 @@ import (
 )
 
 func main() {
-	Duration(Path("01", "1"), workHome)
-	Duration(Path("01", "2"), workHome)
+	Run(Path("01", "1"), workHome)
+	Run(Path("01", "2"), workHome)
 }
 
 func workHome(fileName string) {

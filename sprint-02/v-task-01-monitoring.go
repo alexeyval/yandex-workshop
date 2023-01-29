@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	Duration(Path("02", "1"), monitoring)
+	Run(Path("02", "1"), monitoring)
 }
 
 func monitoring(fileName string) {

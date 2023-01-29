@@ -6,9 +6,9 @@ import (
 )
 
 func main() {
-	Duration(Path("01", "1"), degreeFour)
-	Duration(Path("01", "2"), degreeFour)
-	Duration(Path("01", "3"), degreeFour)
+	Run(Path("01", "1"), degreeFour)
+	Run(Path("01", "2"), degreeFour)
+	Run(Path("01", "3"), degreeFour)
 }
 
 func degreeFour(fileName string) {

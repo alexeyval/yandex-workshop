@@ -8,8 +8,8 @@ import (
 )
 
 func main() {
-	Duration(Path("01", "1"), listForm)
-	Duration(Path("01", "2"), listForm)
+	Run(Path("01", "1"), listForm)
+	Run(Path("01", "2"), listForm)
 }
 
 func listForm(fileName string) {

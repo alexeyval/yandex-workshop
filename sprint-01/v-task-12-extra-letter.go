@@ -7,9 +7,9 @@ import (
 )
 
 func main() {
-	Duration(Path("01", "1"), extraLetter)
-	Duration(Path("01", "2"), extraLetter)
-	Duration(Path("01", "3"), extraLetter)
+	Run(Path("01", "1"), extraLetter)
+	Run(Path("01", "2"), extraLetter)
+	Run(Path("01", "3"), extraLetter)
 }
 
 func extraLetter(fileName string) {

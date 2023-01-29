@@ -27,8 +27,8 @@ func GetReader(fileName string) (reader *bufio.Reader, file *os.File) {
 	return
 }
 
-// Duration - выводит информацию о запуске функции
-func Duration(fileName string, f func(string)) {
+// Run - выводит информацию о запуске функции
+func Run(fileName string, f func(string)) {
 	switch fileName {
 	case "":
 		fmt.Println("---------------------------------------")

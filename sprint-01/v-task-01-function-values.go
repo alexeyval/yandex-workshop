@@ -6,8 +6,8 @@ import (
 )
 
 func main() {
-	Duration(Path("01", "1"), functionValues)
-	Duration(Path("01", "2"), functionValues)
+	Run(Path("01", "1"), functionValues)
+	Run(Path("01", "2"), functionValues)
 }
 
 func functionValues(fileName string) {

@@ -9,8 +9,8 @@ import (
 )
 
 func main() {
-	Duration(Path("02", "1"), polishNotation)
-	Duration(Path("02", "2"), polishNotation)
+	Run(Path("02", "1"), polishNotation)
+	Run(Path("02", "2"), polishNotation)
 
 	TestPerformance(Path("02", "performance-01"), polishNotation)
 }

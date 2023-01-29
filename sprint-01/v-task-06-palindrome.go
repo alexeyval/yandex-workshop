@@ -8,8 +8,8 @@ import (
 )
 
 func main() {
-	Duration(Path("01", "1"), palindrome)
-	Duration(Path("01", "2"), palindrome)
+	Run(Path("01", "1"), palindrome)
+	Run(Path("01", "2"), palindrome)
 }
 
 func palindrome(fileName string) {
