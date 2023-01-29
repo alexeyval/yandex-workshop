@@ -10,6 +10,10 @@ type Stack struct {
 	Len int
 }
 
+func New() *Stack {
+	return &Stack{}
+}
+
 func (s *Stack) Push(value interface{}) {
 	newElem := list{value: value, prev: s.top}
 	s.top = &newElem
