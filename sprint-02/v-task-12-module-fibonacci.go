@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"strconv"
+	"math"
 )
 
 func main() {
@@ -14,7 +14,6 @@ func moduleFibonacci(n, k int) int {
 	if n <= 1 {
 		return n
 	}
-	s := fmt.Sprint(moduleFibonacci(n-1, k) + moduleFibonacci(n-2, k))
-	n, _ = strconv.Atoi(s[len(s)-k:])
+	n = (moduleFibonacci(n-1, k) + moduleFibonacci(n-2, k)) % int(math.Pow(10, float64(k)))
 	return n
 }
