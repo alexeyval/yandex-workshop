@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"yandex-workshop/sprint-02/queueArray"
+	"yandex-workshop/sprint-02/queue-array"
 )
 
 func main() {
