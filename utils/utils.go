@@ -43,7 +43,8 @@ func Duration(fileName string, f func(string)) {
 
 // TestPerformance - выводит информацию о запуске функции + время
 func TestPerformance(fileName string, f func(string)) {
-	fmt.Println("\n----- тест производительности -----")
+	fmt.Printf("\n------ %v ------\n",
+		strings.ReplaceAll(path.Base(filepath.ToSlash(fileName)), "-", " "))
 	switch fileName {
 	case "":
 		f(fileName)
