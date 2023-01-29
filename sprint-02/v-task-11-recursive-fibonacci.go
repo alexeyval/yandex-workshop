@@ -23,7 +23,7 @@ func recursiveFibonacci(n int, cache []int) int {
 	}
 	if cache[n] == 0 {
 		if n <= 1 {
-			cache[n] = 1
+			cache[n] = n
 		} else {
 			cache[n] = recursiveFibonacci(n-1, cache) + recursiveFibonacci(n-2, cache)
 		}
