@@ -33,6 +33,10 @@ func (q *Queue) Push(x interface{}) {
 }
 
 func (q *Queue) Pop() {
+	if q.size == 0 {
+		fmt.Println("None")
+		return
+	}
 	value := q.queue[q.head]
 	q.queue[q.head] = nil
 	q.head = (q.head + 1) % q.maxN
