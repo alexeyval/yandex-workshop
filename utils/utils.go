@@ -37,6 +37,19 @@ func Duration(fileName string, f func(string)) {
 	default:
 		fmt.Printf("------------- %v -------------\nВвод:\n%v\n\nВывод:\n",
 			path.Base(filepath.ToSlash(fileName)), strings.TrimSpace(readFileContents(fileName)))
+		f(fileName)
+	}
+}
+
+// TestPerformance - выводит информацию о запуске функции + время
+func TestPerformance(fileName string, f func(string)) {
+	fmt.Println("\n----- тест производительности -----")
+	switch fileName {
+	case "":
+		f(fileName)
+		fmt.Println()
+	default:
+
 		start := time.Now()
 		f(fileName)
 		d := time.Since(start)
@@ -119,4 +132,17 @@ task.10`, wordName))
 	}
 
 	return first
+}
+
+func ToInt(n interface{}) int {
+	//switch n.(type) {
+	//case int:
+	//	return n.(int)
+	//case string:
+	//	s := n.(string)
+	//	i, _ := strconv.Atoi(s)
+	//	return i
+	//}
+
+	return n.(int)
 }
