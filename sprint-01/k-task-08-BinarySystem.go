@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-func main(){
+func main() {
 	var number1, number2 string
 	var rank int //старший разряд
 	var res []string
@@ -26,7 +26,7 @@ func main(){
 		n1, _ := strconv.Atoi(string(number1[i]))
 		n2, _ := strconv.Atoi(string(number2[i]))
 
-		if n1 + n2 + rank >= 2 {
+		if n1+n2+rank >= 2 {
 			res = append(res, "0")
 			rank = 1
 		} else {

@@ -5,7 +5,7 @@ import (
 	"strconv"
 )
 
-func main(){
+func main() {
 	var N, K, sum int
 	var s, tmp string
 	var res []int
@@ -20,13 +20,13 @@ func main(){
 	sum = K + X
 
 	for sum != 0 {
-		res = append(res, sum % 10)
-		sum = sum  / 10	
+		res = append(res, sum%10)
+		sum = sum / 10
 	}
 
-	for i := 0; i <= len(res) / 2 - 1; i++ {
-		res[i], res[len(res) - 1 - i] = res[len(res) - 1 - i], res[i]
-	}	
+	for i := 0; i <= len(res)/2-1; i++ {
+		res[i], res[len(res)-1-i] = res[len(res)-1-i], res[i]
+	}
 
 	fmt.Println(res)
 }
