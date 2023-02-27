@@ -28,6 +28,14 @@ func main() {
 				left, right, tt.target.left, tt.target.right)
 		}
 	}
+	for _, tt := range tests {
+		left := leftFindBinary2(-1, tt.n, tt.data, tt.find)
+		right := leftFindBinary2(-1, tt.n, tt.data, tt.find*2)
+		if left != tt.target.left || right != tt.target.right {
+			fmt.Printf("2 find got (%v, %v), want (%v, %v)\n",
+				left, right, tt.target.left, tt.target.right)
+		}
+	}
 }
 
 func leftFindBinary(l, r int, a []int, s int) int {
@@ -43,4 +51,19 @@ func leftFindBinary(l, r int, a []int, s int) int {
 		return -1
 	}
 	return r + 1
+}
+
+func leftFindBinary2(l, r int, a []int, x int) int {
+	if r-l == 1 {
+		if r == len(a) {
+			return -1
+		}
+		return r + 1
+	}
+	middle := (l + r) / 2
+	if a[middle] < x {
+		return leftFindBinary2(middle, r, a, x)
+	} else {
+		return leftFindBinary2(l, middle, a, x)
+	}
 }
