@@ -10,7 +10,8 @@ func main() {
 		{3, "((()))\n(()())\n(())()\n()(())\n()()()\n"},
 		{2, "(())\n()()\n"},
 	} {
-		got := A(test.in*2, "", 0, new(string))
+		var got string
+		A(test.in*2, "", 0, &got)
 		if got != test.want {
 			fmt.Printf("%v: got %q; want %q\n", test.in, got, test.want)
 		}
