@@ -18,10 +18,10 @@ func main() {
 	}
 }
 
-func A(n int, prefix string, count int, res *string) string {
+func A(n int, prefix string, count int, res *string) {
 	if n == 0 {
 		*res += prefix + "\n"
-		return *res
+		return
 	}
 
 	if count <= n/2 {
@@ -30,5 +30,4 @@ func A(n int, prefix string, count int, res *string) string {
 	if count > 0 {
 		A(n-1, prefix+")", count-1, res)
 	}
-	return *res
 }
