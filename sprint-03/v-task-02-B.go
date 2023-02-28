@@ -39,7 +39,7 @@ func B(m map[uint8]string, n, prefix string, c *string) {
 	}
 	if len(n) == 1 {
 		for _, k := range m[n[0]] {
-			B(m, n[1:], prefix+string(k), c)
+			*c += prefix + string(k) + " "
 		}
 		return
 	}
