@@ -6,10 +6,20 @@ import (
 	"strings"
 )
 
+type Test bool
+
+func (f Test) String() string {
+	res := "OK"
+	if !f {
+		res = "FAIL"
+	}
+	return res
+}
+
 func main() {
-	fmt.Println(H([]string{"15", "56", "2"}) == "56215")
-	fmt.Println(H([]string{"1", "783", "2"}) == "78321")
-	fmt.Println(H([]string{"2", "4", "5", "2", "10"}) == "542210")
+	fmt.Println(Test(H([]string{"15", "56", "2"}) == "56215" &&
+		H([]string{"1", "783", "2"}) == "78321" &&
+		H([]string{"2", "4", "5", "2", "10"}) == "542210"))
 }
 
 func H(A []string) string {
