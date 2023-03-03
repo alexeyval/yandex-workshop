@@ -23,6 +23,6 @@ func main() {
 }
 
 func H(A []string) string {
-	sort.Slice(A, func(i, j int) bool { return A[i][0] > A[j][0] })
+	sort.Slice(A, func(i, j int) bool { return A[i] > A[j] })
 	return strings.Join(A, "")
 }
