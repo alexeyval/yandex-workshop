@@ -15,14 +15,13 @@ func G(A []int, k int) []int {
 	}
 
 	index := 0
-	res := make([]int, len(A))
-	for j, v := range count {
-		for i := 1; i <= v; i++ {
-			res[index] = j
+	for i, v := range count {
+		for amount := 1; amount <= v; amount++ {
+			A[index] = i
 			index++
 		}
 	}
-	return res
+	return A
 }
 
 func Equal(a, b []int) bool {
