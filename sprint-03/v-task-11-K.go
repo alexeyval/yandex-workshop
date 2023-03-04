@@ -48,10 +48,10 @@ func mergeSort(arr []int, lf int, rg int) {
 		return
 	}
 
-	mergeSort(arr, lf, (lf+rg+1)/2)
-	mergeSort(arr, (lf+rg+1)/2, rg)
+	mergeSort(arr, lf, (lf+rg)/2)
+	mergeSort(arr, (lf+rg)/2, rg)
 
-	res := merge(arr, lf, (lf+rg+1)/2, rg)
+	res := merge(arr, lf, (lf+rg)/2, rg)
 	for i := lf; i < rg; i++ {
 		arr[i] = res[i-lf]
 	}
