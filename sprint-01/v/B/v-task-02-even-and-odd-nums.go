@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-
+	_ = evenAndOddNums
 }
 
 func evenAndOddNums(fileName string) {

@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-
+	_ = workHome
 }
 
 func workHome(fileName string) {

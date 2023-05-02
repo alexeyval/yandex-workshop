@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-
+	_ = extraLetter
 }
 
 func extraLetter(fileName string) {

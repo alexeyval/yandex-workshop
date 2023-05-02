@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-
+	_ = neighbors
 }
 
 func neighbors(fileName string) {

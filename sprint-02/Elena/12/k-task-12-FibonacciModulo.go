@@ -20,7 +20,6 @@ func FibonacciModulo(number int, k float64) int {
 		} else {
 			return prev % int(math.Pow(10, k))
 		}
-		return prev
 	}
 }
 

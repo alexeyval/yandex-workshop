@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-
+	_ = palindrome
 }
 
 func palindrome(fileName string) {

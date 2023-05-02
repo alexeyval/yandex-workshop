@@ -10,7 +10,7 @@ import (
 )
 
 func main() {
-
+	_ = binarySystem
 }
 
 func binarySystem(fileName string) {

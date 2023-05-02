@@ -3,8 +3,8 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println(C("abc", "ahbgdcu") == true)
-	fmt.Println(C("abcp", "ahpc") == false)
+	fmt.Println(C("abc", "ahbgdcu"))
+	fmt.Println(!C("abcp", "ahpc"))
 }
 
 func C(s, t string) bool {

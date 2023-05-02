@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-
+	_ = randomWeather
 }
 
 func randomWeather(fileName string) {

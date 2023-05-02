@@ -8,10 +8,10 @@ import (
 )
 
 func main() {
-
+	_ = factorization
 }
 
-func factorization(fileName string) {
+func factorization(fileName string) *bufio.Writer {
 	reader := bufio.NewReader(os.Stdin)
 	writer := bufio.NewWriter(os.Stdout)
 
@@ -22,7 +22,10 @@ func factorization(fileName string) {
 	for n > 1 {
 		switch {
 		case n%d == 0:
-			writer.WriteString(strconv.Itoa(d) + " ")
+			_, err := writer.WriteString(strconv.Itoa(d) + " ")
+			if err != nil {
+				return nil
+			}
 			n /= d
 		default:
 			d += 1
@@ -30,4 +33,5 @@ func factorization(fileName string) {
 	}
 
 	writer.Flush()
+	return writer
 }

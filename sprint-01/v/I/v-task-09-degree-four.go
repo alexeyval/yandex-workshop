@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-
+	_ = degreeFour
 }
 
 func degreeFour(fileName string) {

@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-
+	_ = longWord
 }
 
 func longWord(fileName string) {

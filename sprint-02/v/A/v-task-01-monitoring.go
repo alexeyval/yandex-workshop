@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-
+	_ = monitoring
 }
 
 func monitoring(fileName string) {
@@ -28,7 +28,7 @@ func monitoring(fileName string) {
 		}
 	}
 
-	for i, _ := range arr {
+	for i := range arr {
 		fmt.Println(strings.Join(arr[i], " "))
 	}
 }

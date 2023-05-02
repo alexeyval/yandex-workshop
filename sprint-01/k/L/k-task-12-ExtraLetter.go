@@ -8,7 +8,7 @@ import (
 func SortSymbol(s string) []byte {
 	var arr []byte
 
-	for i, _ := range s {
+	for i := range s {
 		arr = append(arr, s[i])
 	}
 
@@ -26,7 +26,7 @@ func main() {
 
 	if len(arr1) < len(arr2) {
 		arr1 = append(arr1, '0')
-		for i, _ := range arr2 {
+		for i := range arr2 {
 			if arr1[i] != arr2[i] {
 				fmt.Println(string(arr2[i]))
 				break

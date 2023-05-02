@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-
+	_ = functionValues
 }
 
 func functionValues(fileName string) {

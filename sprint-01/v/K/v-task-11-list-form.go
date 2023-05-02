@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-
+	_ = listForm
 }
 
 func listForm(fileName string) {
